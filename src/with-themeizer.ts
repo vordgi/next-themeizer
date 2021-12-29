@@ -19,17 +19,17 @@ const withPreprocessor: Plugin = (nextConfig = {}) => ({
           (rule) => typeof (rule as RuleSetRule).oneOf === 'object'
         );
 
-        if (!oneOfRule || typeof oneOfRule === 'string' || !oneOfRule.oneOf) throw new Error('Unknown');
+        if (!oneOfRule || typeof oneOfRule === 'string' || !oneOfRule.oneOf) throw new Error('Invalid next js configuration. Can\'t find rule with "oneOf" key');
 
         const scriptVariantIndex = oneOfRule.oneOf.findIndex(rule => (
             rule.test?.toString().match(/\/\\.\(tsx|ts|js|cjs|mjs|jsx\)\$\//) && !rule.issuerLayer
         ))
 
-        if (scriptVariantIndex === -1) throw new Error('Unknown');
+        if (scriptVariantIndex === -1) throw new Error('Invalid next js configuration. Can\'t find a rule for compiling pages');
 
         const scriptRule = oneOfRule.oneOf[scriptVariantIndex];
 
-        if (!scriptRule.use) throw new Error('Unknown');
+        if (!scriptRule.use) throw new Error('Invalid next js configuration. Page compilation rule does not contain "use" key');
   
         if (!Array.isArray(scriptRule.use)) scriptRule.use = [scriptRule.use as RuleSetUseItem];
         scriptRule.use.push(require.resolve('themeizer'));
