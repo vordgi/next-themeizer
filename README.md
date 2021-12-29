@@ -3,12 +3,12 @@ Package for adding "Themeizer" ecosystem interaction configuration to your next.
 
 ## Installation
 
-Using npm:
+**Using npm:**
 ```bash
 $ npm install next-themeizer
 ```
 
-Using yarn:
+**Using yarn:**
 ```bash
 $ yarn add next-themeizer
 ```
@@ -21,20 +21,32 @@ $ yarn add next-themeizer
 | headers | false | JSON object | an object of headers required for reading from api |
 | revalidate | false | number | period in which to fetch styles (in minutes) |
 
-1. Add configuration to environment variables. For example, via `.env` files:
+### Add configuration to environment variables.
+For example, via `.env` files:
 ```js
 // .env.local
 THEMEIZER_OPTIONS={"url":"https://example.com/api/themes","revalidate":0.1,"headers":{"token":"example-token"}}
 ```
 
-2. Add themeizer to your app config:
+### Add themeizer to your app config:
+
+**Base:**
 ```js
-// next.config.js
 const withThemeizer = require('next-themeizer').default;
 
 module.exports = withThemeizer({
-    // your next.js configuration
-})
+    // next.js config
+});
+```
+
+**With `next-compose-plugins`:**
+```js
+const withThemeizer = require('next-themeizer').default;
+const withPlugins = require('next-compose-plugins');
+
+module.exports = withPlugins([
+    [withThemeizer]
+], nextConfig);
 ```
 
 ## Usage
