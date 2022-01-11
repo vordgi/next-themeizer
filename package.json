@@ -1,6 +1,6 @@
 {
   "name": "next-themeizer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "dist/with-themeizer.js",
   "types/main": "dist/with-themeizer.d.ts",
@@ -28,6 +28,6 @@
     "typescript": "4.5.4"
   },
   "dependencies": {
-    "themeizer": "0.3.0"
+    "themeizer": "1.0.0"
   }
 }
