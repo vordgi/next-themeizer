@@ -1,7 +1,7 @@
 {
   "name": "next-themeizer",
-  "version": "0.2.1",
-  "description": "",
+  "version": "0.2.2",
+  "description": "Package for adding \"Themeizer\" ecosystem interaction configuration to your next.js application",
   "main": "dist/with-themeizer.js",
   "types/main": "dist/with-themeizer.d.ts",
   "files": [
@@ -11,7 +11,18 @@
     "start": "ts-node index.ts",
     "build": "tsc"
   },
-  "keywords": [],
+  "keywords": [
+    "themeizer",
+    "theming",
+    "css-variables",
+    "variables",
+    "colors",
+    "css",
+    "styles",
+    "next",
+    "nextjs",
+    "next-plugin"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/vordgi/next-themeizer.git"
